@@ -43,11 +43,11 @@ def selective_tweet_shortener(tweets)
 end
 
 def shortened_tweet_truncator(tweets)
-  shortened_tweet = selective_tweet_shortener(tweets)
-  if shortened_tweet.length > 140
-    return shortened_tweet[0..136] += "..."
-  else
-    return shortened_tweet
+  shortened_tweet = selective_tweet_shortener(tweets)      #uses selective_tweet_shortener
+  if shortened_tweet.length > 140                      #if number length is less than 140
+    return shortened_tweet[0..136] += "..."             #return tweet from 0 thru 136 index
+  else                                                      #and have "..." at the end
+    return shortened_tweet        
   end
 end
     
