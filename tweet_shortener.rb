@@ -14,31 +14,31 @@ def dictionary
 end
 
 def word_substituter(tweet)
-  shortened = []
-  keys = dictionary.keys
-  tweet_words = tweet.split(" ")
+  shortened = []                        #creates new array
+  keys = dictionary.keys                #setting all keys within dictionary to variable keys
+  tweet_words = tweet.split(" ")        #dividing all strings in tweet to substrings
   
-    tweet_words.each do |word|
-      if keys.include?(word.downcase)
-      shortened << dictionary[word.downcase] 
+    tweet_words.each do |word|            #iterating over tweet_words
+      if keys.include?(word.downcase)     #check to see if values in word present in keys
+      shortened << dictionary[word.downcase]      #if it is, places all those in "shortned" array
     else
-    shortened << word
+    shortened << word                                #non lowercase words
   end
 end
   shortened.join(" ")
 end
 
 def bulk_tweet_shortener(tweets)
-  tweets.each do |word|
-    puts word_substituter(word)
+  tweets.each do |word|               #iterates over tweets
+    puts word_substituter(word)       #uses word_substituter method with arg "word" value
   end
 end
 
 def selective_tweet_shortener(tweets)
-  if tweets.length <= 140
-    return tweets
+  if tweets.length <= 140                   #if length in number value less than 140
+    return tweets                           #returns tweets
   else
-    return word_substituter(tweets)
+    return word_substituter(tweets)         #if not, uses word_substituter with tweet arg
   end
 end
 
